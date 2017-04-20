@@ -7,4 +7,6 @@ install: "pip install -r requirements.txt"
 # command to run tests
 # Run the iOS test
 script: 
+- npm install -g appium@1.6.3 --no-shrinkwrap
+- appium &
 - cd sample-code/examples/python && python ios_simple.py
