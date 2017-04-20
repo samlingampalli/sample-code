@@ -6,6 +6,7 @@ before_install:
   - source ~/.nvm/nvm.sh
   - nvm install 7 # for Node v7
   - node --version
+  - brew tap caskroom/cask
   - brew install android-sdk
 # command to install dependencies
 install: "sudo pip install -r requirements.txt"
@@ -17,3 +18,4 @@ script:
 - appium &
 - sleep 30
 - cd sample-code/examples/python && python ios_simple.py
+- python android_simple.py
