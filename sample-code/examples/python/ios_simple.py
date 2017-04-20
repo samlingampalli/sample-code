@@ -17,8 +17,8 @@ class SimpleIOSTests(unittest.TestCase):
             desired_capabilities={
                 'app': app,
                 'platformName': 'iOS',
-                'platformVersion': '10.1',
-                'deviceName': 'iPhone 6'
+                'platformVersion': '10.2',
+                'deviceName': 'iPhone 6 Plus'
             })
 
     def tearDown(self):
@@ -35,7 +35,19 @@ class SimpleIOSTests(unittest.TestCase):
             els[i].send_keys(rnd)
             self._sum += rnd
 
+    def _dismiss_slow_down_message(self):
+        sleep(5)
+        try:
+            el = self.driver.find_element_by_accessibility_id('OK')
+            el.click()
+            sleep(1)
+        except:
+            pass
+
     def test_ui_computation(self):
+        # Dismiss the slow down message that shows on start up
+        self._dismiss_slow_down_message()
+
         # populate text fields with values
         self._populate()
 
@@ -48,6 +60,8 @@ class SimpleIOSTests(unittest.TestCase):
         self.assertEqual(int(sum), self._sum)
 
     def test_scroll(self):
+        # Dismiss the slow down message that shows on start up
+        self._dismiss_slow_down_message()
         els = self.driver.find_elements_by_class_name('XCUIElementTypeButton')
         els[5].click()
 
