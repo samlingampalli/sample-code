@@ -1,6 +1,8 @@
 sudo: required
 language: python
 osx_image: xcode8.2
+node_js:
+  - "7"
 python:
   - "2.7"
 # command to install dependencies
