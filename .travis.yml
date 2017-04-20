@@ -14,4 +14,5 @@ install: "pip install -r requirements.txt"
 script: 
 - npm install -g appium@1.6.3 --no-shrinkwrap
 - appium &
+- sleep 30
 - cd sample-code/examples/python && python ios_simple.py
