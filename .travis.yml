@@ -17,10 +17,13 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the iOS test
 script: 
+- sdkmanager "platforms;android-25"
+- sdkmanager "system-images;android-22;google_apis;x86"
 - sdkmanager --list
-- python --version 
-- npm install -g appium@1.6.3 --no-shrinkwrap
-- appium &
-- sleep 30
-- cd sample-code/examples/python && python ios_simple.py
-- python android_simple.py
+- avdmanager create -h
+#- python --version 
+#- npm install -g appium@1.6.3 --no-shrinkwrap
+#- appium &
+#- sleep 30
+#- cd sample-code/examples/python && python ios_simple.py
+#- python android_simple.py
