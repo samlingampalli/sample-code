@@ -19,6 +19,7 @@ script:
 - echo $PATH
 - sdkmanager "platforms;android-22"
 - sdkmanager "system-images;android-22;google_apis;x86"
+- sdkmanager "extras:intel:Hardware_Accelerated_Execution_Manager"
 - avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
 - avdmanager list avd 
 - ls $ANDROID_HOME
