@@ -21,8 +21,8 @@ script:
 - sdkmanager "system-images;android-22;google_apis;x86"
 - avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
 - avdmanager list avd 
-- echo $ANDROID_HOME
-- emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 &
+- ls $ANDROID_HOME
+- $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 &
 - sleep 30
 - echo $HOME
 - python --version 
