@@ -2,8 +2,7 @@ sudo: required
 language: objective-c 
 osx_image: xcode8.2
 env:
-- ANDROID_HOME=/usr/local/opt/android-sdk
-- PATH=$PATH:$ANDROID_HOME
+- ANDROID_HOME=/usr/local/opt/android-sdk PATH=$PATH:$ANDROID_HOME
 before_install:
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
