@@ -10,7 +10,8 @@ before_install:
   - brew tap
   - brew tap caskroom/cask
   - sudo chown root /usr/local/bin/brew
-  - sudo brew cask install intel-haxm
+  # Can't un x86 emulators in travis https://github.com/travis-ci/travis-ci/issues/1419
+  #- sudo brew cask install intel-haxm
   #- brew cask install --appdir=~/Applications intel-haxm
   - brew cask install android-sdk
   - brew cask install android-platform-tools
@@ -21,8 +22,8 @@ install: "sudo pip install -r requirements.txt"
 script: 
 - echo $PATH
 - sdkmanager "platforms;android-22"
-- sdkmanager "system-images;android-22;google_apis;x86"
-- avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
+- sdkmanager "system-images;android-22;google_apis;arm64-v8a"
+- avdmanager create avd --package 'system-images;android-22;google_apis;arm64-v8a' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
 - avdmanager list avd 
 - ls $ANDROID_HOME
 - $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 &
