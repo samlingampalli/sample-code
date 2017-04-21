@@ -2,7 +2,7 @@ sudo: required
 language: objective-c 
 osx_image: xcode8.2
 env:
-- ANDROID_HOME=/usr/local/opt/android-sdk PATH=$PATH:$ANDROID_HOME
+- ANDROID_HOME=/usr/local/opt/android-sdk PATH=$PATH:$ANDROID_HOME ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 before_install:
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
@@ -16,7 +16,7 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the iOS test
 script: 
-- ls /usr/local/Cellar/android-sdk/ 
+- ls $ANDROID_HOME 
 - sdkmanager "platforms;android-22"
 - sdkmanager "system-images;android-22;google_apis;x86"
 - avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
