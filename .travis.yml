@@ -10,7 +10,7 @@ before_install:
   - brew tap
   - brew tap caskroom/cask
   - sudo chown root /usr/local/bin/brew
-  - brew cask install intel-haxm
+  - sudo brew cask install intel-haxm
   #- brew cask install --appdir=~/Applications intel-haxm
   - brew cask install android-sdk
   - brew cask install android-platform-tools
