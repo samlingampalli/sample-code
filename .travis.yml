@@ -17,7 +17,8 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the iOS test
 script: 
-- sdkmanager "platforms;android-25"
+- arch
+- sdkmanager "platforms;android-22"
 - sdkmanager "system-images;android-22;google_apis;x86"
 - sdkmanager --list
 - avdmanager create -h
