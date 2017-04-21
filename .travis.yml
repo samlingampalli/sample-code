@@ -20,9 +20,10 @@ script:
 - arch
 - sdkmanager "platforms;android-22"
 - sdkmanager "system-images;android-22;google_apis;x86"
-- sdkmanager --list
-- avdmanager create -h
-- avdmanager list devices
+- avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
+- avdmanager list avd 
+- $ANDROID_HOME/emulator/emulator -avd  Nexus_6 &
+- sleep 30
 #- python --version 
 #- npm install -g appium@1.6.3 --no-shrinkwrap
 #- appium &
