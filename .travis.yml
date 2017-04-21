@@ -25,9 +25,10 @@ script:
 - emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 &
 - sleep 30
 - echo $HOME
-#- python --version 
-#- npm install -g appium@1.6.3 --no-shrinkwrap
-#- appium &
-#- sleep 30
-#- cd sample-code/examples/python && python ios_simple.py
-#- python android_simple.py
+- python --version 
+- npm install -g appium@1.6.3 --no-shrinkwrap
+- appium &
+- sleep 30
+- adb devices
+- cd sample-code/examples/python && python ios_simple.py
+- python android_simple.py
