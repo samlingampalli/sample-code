@@ -1,14 +1,14 @@
 sudo: required
 language: objective-c 
 osx_image: xcode8.2
+env:
+- ANDROID_HOME=/usr/local/opt/android-sdk
+- PATH=$PATH:$ANDROID_HOME
 before_install:
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
   - nvm install 7 # for Node v7
-  - node --version
-  - brew -v
   - brew tap
-  - brew tap caskroom/cask
   - brew cask install android-sdk
   - brew cask install android-platform-tools
 # command to install dependencies
@@ -16,6 +16,7 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the iOS test
 script: 
+- sdkmanager --list
 - python --version 
 - npm install -g appium@1.6.3 --no-shrinkwrap
 - appium &
