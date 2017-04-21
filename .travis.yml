@@ -22,6 +22,7 @@ script:
 - sdkmanager "system-images;android-22;google_apis;x86"
 - sdkmanager --list
 - avdmanager create -h
+- avdmanager list devices
 #- python --version 
 #- npm install -g appium@1.6.3 --no-shrinkwrap
 #- appium &
