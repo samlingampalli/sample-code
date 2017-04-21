@@ -9,6 +9,7 @@ before_install:
   - source ~/.nvm/nvm.sh
   - nvm install 7 # for Node v7
   - brew tap
+  - brew tap caskroom/cask
   - brew cask install android-sdk
   - brew cask install android-platform-tools
 # command to install dependencies
