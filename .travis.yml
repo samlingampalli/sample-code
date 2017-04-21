@@ -9,7 +9,7 @@ before_install:
   - nvm install 7 # for Node v7
   - brew tap
   - brew tap caskroom/cask
-  - sudo -v && sudo brew cask install intel-haxm
+  - brew cask install --appdir=~/Applications intel-haxm
   - brew cask install android-sdk
   - brew cask install android-platform-tools
 # command to install dependencies
