@@ -34,5 +34,5 @@ script:
 - appium &
 - sleep 30
 - adb devices
-- cd sample-code/examples/python && python ios_simple.py
-- python android_simple.py
+#- cd sample-code/examples/python && python ios_simple.py
+- cd sample-code/examples/python && python android_simple.py
