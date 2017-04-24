@@ -11,7 +11,7 @@ before_install:
   #- unzip haxm-macosx_v6_1_2.zip
   - ls
   - chmod 755 silent_install.sh
-  - sudo silent_install.sh
+  - sudo ./silent_install.sh
   - brew tap
   - brew tap caskroom/cask
   - brew cask install android-sdk
