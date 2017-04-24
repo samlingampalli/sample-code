@@ -9,8 +9,7 @@ before_install:
   - nvm install 7 # for Node v7
   # Home brew won't allow installation with sudo
   - unzip haxm-macosx_v6_1_2.zip
-  - ./silent_install.sh
-  #- sudo ./silent_install.sh
+  - sudo ./silent_install.sh
   - brew tap
   - brew tap caskroom/cask
   - brew cask install android-sdk
