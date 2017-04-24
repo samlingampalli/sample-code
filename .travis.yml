@@ -1,4 +1,4 @@
-#sudo: required
+sudo: required
 language: objective-c 
 osx_image: xcode8.2
 env:
