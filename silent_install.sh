@@ -563,7 +563,8 @@ fi
 touch $silent_indicater
 
 # install the mpkg
-installer -pkg $mpkg_file -target /  1>>$logfile  2>&1
+#installer -pkg $mpkg_file -target /  1>>$logfile  2>&1
+installer -pkg $mpkg_file -target /
 
 install_result=$?
 
