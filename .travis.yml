@@ -1,16 +1,33 @@
-language: android
+sudo: required
+language: objective-c 
+osx_image: xcode8.2
+env:
+- ANDROID_HOME=/usr/local/share/android-sdk PATH=$PATH:$ANDROID_HOME ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 before_install:
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
   - nvm install 7 # for Node v7
+  - brew tap
+  - brew tap caskroom/cask
+  - sudo chown root /usr/local/bin/brew
+  # Home brew won't allow installation with sudo
+  - unzip haxm-macosx_v6_1_2.zip
+  - sudo silent_install.sh
+  - brew cask install android-sdk
+  - brew cask install android-platform-tools
 # command to install dependencies
 install: "sudo pip install -r requirements.txt"
 # command to run tests
-# Run the test
+# Run the iOS test
 script: 
-- $ANDROID_HOME/tools/bin/avdmanager create avd --package 'system-images;android-22;google_apis;armeabi-v7a' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
-- $ANDROID_HOME/tools/bin/avdmanager list avd 
-- ls $ANDROID_HOME/tools
+- echo $PATH
+- sdkmanager "platforms;android-22"
+#- sdkmanager "system-images;android-22;google_apis;armeabi-v7a"
+#- avdmanager create avd --package 'system-images;android-22;google_apis;armeabi-v7a' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
+- sdkmanager "system-images;android-22;google_apis;x86"
+- avdmanager create avd --package 'system-images;android-22;google_apis;x86' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
+- avdmanager list avd 
+- ls $ANDROID_HOME
 - $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
 - sleep 30
 - echo $HOME
@@ -19,4 +36,5 @@ script:
 - appium &
 - sleep 30
 - adb devices
+#- cd sample-code/examples/python && python ios_simple.py
 - cd sample-code/examples/python && python android_simple.py
