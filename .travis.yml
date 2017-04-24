@@ -13,7 +13,6 @@ before_install:
   # Can't run x86 emulators in travis https://github.com/travis-ci/travis-ci/issues/1419
   - ls -al `which brew`
   - sudo chown root:wheel `which brew`
-  - sudo brew cask install intel-haxm
   - brew cask install intel-haxm
   - brew cask install android-sdk
   - brew cask install android-platform-tools
