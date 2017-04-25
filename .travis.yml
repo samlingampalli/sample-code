@@ -8,8 +8,8 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the test
 script: 
-- $ANDROID_HOME/tools/bin/android list targets
-- $ANDROID_HOME/tools/bin/android create avd -n Nexus_6 -t Nexus_6
+- $ANDROID_HOME/tools/android list targets
+- $ANDROID_HOME/tools/android create avd -n Nexus_6 -t Nexus_6
 #- $ANDROID_HOME/tools/bin/avdmanager list avd 
 - ls $ANDROID_HOME/tools
 - $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
