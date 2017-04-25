@@ -5,6 +5,7 @@ android:
     - android-22
     - sys-img-armeabi-v7a-android-22
 before_install:
+  - uname -a
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
   - nvm install 7 # for Node v7

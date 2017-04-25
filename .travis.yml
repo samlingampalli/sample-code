@@ -4,6 +4,7 @@ osx_image: xcode8.2
 env:
 - ANDROID_HOME=/usr/local/share/android-sdk PATH=$PATH:$ANDROID_HOME ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 before_install:
+  - uname -a
   - brew tap
   - brew tap caskroom/cask
   - brew cask install android-sdk
@@ -31,7 +32,7 @@ script:
 - appium &
 - sleep 30
 - cd sample-code/examples/python 
-#- python ios_simple.py
+- python ios_simple.py
 - while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do echo "Waiting for device" && sleep 1; done
 - adb shell input keyevent 82 &
 - adb devices
