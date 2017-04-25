@@ -1,4 +1,5 @@
 machine:
+  environment:
     ANDROID_HOME: /usr/local/opt/android-sdk
   xcode:
     version: "8.2"
