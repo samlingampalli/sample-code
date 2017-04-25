@@ -28,7 +28,7 @@ script:
 # For x86
 #- $ANDROID_HOME/emulator/emulator -no-accel -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -verbose &
 # Takes a while to start
-- sleep 300
+- while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
 - echo $HOME
 - python --version 
 - npm install -g appium@1.6.3 --no-shrinkwrap
