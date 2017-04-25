@@ -24,7 +24,7 @@ dependencies:
        background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
     - source ~/virtualenvs/venv-system/bin/activate 
-    - sudo pip install -r sample-code/requirements.txt
+    - sudo pip install -r requirements.txt
 test:
   override:
     - appium:
