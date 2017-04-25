@@ -1,4 +1,9 @@
 language: android
+android:
+  components:
+    # The SDK version used to compile your project
+    - android-22
+    - sys-img-armeabi-v7a-android-22
 before_install:
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
@@ -8,13 +13,13 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the test
 script: 
-- $ANDROID_HOME/tools/bin/android list targets
-- $ANDROID_HOME/tools/bin/android create avd -n Nexus_6 -t Nexus_6
+- $ANDROID_HOME/tools/android list targets
 #- $ANDROID_HOME/tools/bin/avdmanager list avd 
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
 - ls $ANDROID_HOME/tools
-- $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
-- sleep 30
-- echo $HOME
 - python --version 
 - npm install -g appium@1.6.3 --no-shrinkwrap
 - appium &
