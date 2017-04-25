@@ -6,8 +6,6 @@ machine:
     ANDROID_HOME: /usr/local/share/android-sdk
   xcode:
     version: "8.2"
-  python:
-    version: 2.7.9
 dependencies:
   pre:
     - brew update
