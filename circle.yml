@@ -22,7 +22,9 @@ dependencies:
     - avdmanager create avd --force --name test --package 'system-images;android-22;google_apis;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M --tag "google_apis"
     - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose &
     - npm install -g appium@1.6.3 --no-shrinkwrap
-    - sudo pip install -r requirements.txt
+    - virtualenv circle-test
+    - source circle-test/bin/activate
+    - pip install -r requirements.txt
 test:
   override:
     - appium &
