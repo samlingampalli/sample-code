@@ -1,5 +1,6 @@
 machine:
   pre:
+    - export PATH=/usr/local/bin:$PATH:/Users/distiller/Library/Python/2.7/bin
     - pip install --user --ignore-installed --upgrade --verbose virtualenv
     - ln -s ~/Library/Python/2.7/bin/virtualenv /usr/local/bin/virtualenv
   environment:
