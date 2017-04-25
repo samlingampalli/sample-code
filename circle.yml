@@ -2,6 +2,7 @@ machine:
   pre:
     - pip install --user --ignore-installed --upgrade --verbose virtualenv
     - ln -s ~/Library/Python/2.7/bin/virtualenv /usr/local/bin/virtualenv
+    - pip install -r requirements.txt
   environment:
     ANDROID_HOME: /usr/local/share/android-sdk
   xcode:
@@ -24,7 +25,7 @@ dependencies:
        background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
   post:
-    - pip install -r requirements.txt
+    #- pip install -r requirements.txt
 test:
   override:
     - appium:
