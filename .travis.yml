@@ -28,8 +28,8 @@ script:
 # For x86
 #- $ANDROID_HOME/emulator/emulator -no-accel -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -verbose &
 # Takes a while to start
-- while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
-- echo $HOME
+- while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do echo "Waiting for device" && sleep 1; done
+- sleep 10 
 - python --version 
 - npm install -g appium@1.6.3 --no-shrinkwrap
 - appium &
