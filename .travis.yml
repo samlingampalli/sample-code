@@ -9,12 +9,12 @@ install: "sudo pip install -r requirements.txt"
 # Run the test
 script: 
 - $ANDROID_HOME/tools/android list targets
-- $ANDROID_HOME/tools/android create avd -n Nexus_6 -t 8 
 #- $ANDROID_HOME/tools/bin/avdmanager list avd 
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
 - ls $ANDROID_HOME/tools
-- $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
-- sleep 30
-- echo $HOME
 - python --version 
 - npm install -g appium@1.6.3 --no-shrinkwrap
 - appium &
