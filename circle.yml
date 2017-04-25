@@ -24,13 +24,14 @@ dependencies:
     - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose: 
        background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
-  post:
-    - pip install --user -r requirements.txt.ignore
+  override:
+    - pip install --user -r requirements.txt
 test:
   override:
     - appium &
     - sleep 30
     - cd sample-code/examples/python 
+    - ls
     - python ios_simple.py
     - while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do echo "Waiting for device" && sleep 1; done
     - adb shell input keyevent 82 &
