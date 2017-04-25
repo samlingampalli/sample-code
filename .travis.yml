@@ -26,7 +26,7 @@ before_install:
   - nvm install 7 # for Node v7
   - npm install -g appium@1.6.3 --no-shrinkwrap
 # command to install dependencies
-install: "sudo pip install -r requirements.txt"
+install: "sudo pip install -r requirements.txt.ignore"
 # command to run tests
 # Run the iOS test
 script: 
