@@ -28,8 +28,7 @@ dependencies:
     - pip install --user -r requirements.txt.ignore
 test:
   override:
-    - appium:
-      background: true
+    - appium &
     - sleep 30
     - cd sample-code/examples/python 
     - python ios_simple.py
