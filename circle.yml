@@ -20,14 +20,16 @@ dependencies:
     #- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
     #- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
     - avdmanager create avd --force --name test --package 'system-images;android-22;google_apis;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M --tag "google_apis"
-    - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose &
+    - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose: 
+       background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
     - virtualenv circle-test
     - source circle-test/bin/activate
     - pip install -r requirements.txt
 test:
   override:
-    - appium &
+    - appium:
+      background: true
     - sleep 30
     - cd sample-code/examples/python 
     - python ios_simple.py
