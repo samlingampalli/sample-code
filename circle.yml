@@ -23,9 +23,8 @@ dependencies:
     - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose: 
        background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
-    - virtualenv circle-test
-    - source circle-test/bin/activate
-    - pip install -r requirements.txt
+    - source ~/virtualenvs/venv-system/bin/activate 
+    - sudo pip install -r sample-code/requirements.txt
 test:
   override:
     - appium:
