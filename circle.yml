@@ -19,11 +19,9 @@ dependencies:
     #- mkdir "$ANDROID_HOME/licenses" || true
     #- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
     #- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-    #- $ANDROID_HOME/tools/bin/avdmanager create avd --force --name test --package 'system-images;android-22;google_apis;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M --tag "google_apis"
-    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-    - emulator -avd test -no-audio -no-window &
+    - avdmanager create avd --force --name test --package 'system-images;android-22;google_apis;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M --tag "google_apis"
     - brew install npm
-    #- $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose &
+    - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose &
     - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
     - source ~/.nvm/nvm.sh
     - nvm install 7 # for Node v7
