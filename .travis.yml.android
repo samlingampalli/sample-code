@@ -8,8 +8,9 @@ install: "sudo pip install -r requirements.txt"
 # command to run tests
 # Run the test
 script: 
-- $ANDROID_HOME/tools/bin/avdmanager create avd --package 'system-images;android-22;google_apis;armeabi-v7a' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
-- $ANDROID_HOME/tools/bin/avdmanager list avd 
+- $ANDROID_HOME/tools/bin/android list targets
+- $ANDROID_HOME/tools/bin/android create avd -n Nexus_6 -t Nexus_6
+#- $ANDROID_HOME/tools/bin/avdmanager list avd 
 - ls $ANDROID_HOME/tools
 - $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
 - sleep 30
