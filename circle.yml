@@ -32,8 +32,8 @@ test:
     - sleep 30
     - cd sample-code/examples/python 
     - ls
-    - python ios_simple.py
+    - cd sample-code/examples/python && python ios_simple.py
     - while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do echo "Waiting for device" && sleep 1; done
     - adb shell input keyevent 82 &
     - adb devices
-    - python android_simple.py
+    - cd sample-code/examples/python && python android_simple.py
