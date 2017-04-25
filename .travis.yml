@@ -18,7 +18,8 @@ before_install:
   #- avdmanager create avd --package 'system-images;android-22;google_apis;armeabi-v7a' --name Nexus_6 --tag "google_apis" -d "Nexus 6" -c 100M 
   # Start emulator early since it takes a long time to boot
   #- $ANDROID_HOME/emulator/emulator -avd  Nexus_6 -skindir $ANDROID_HOME/skins -skin nexus_6 -memory 1024 -no-window -no-audio -no-boot-anim -verbose &
-  - $ANDROID_HOME/tools/bin/avdmanager create avd --force --name test --package 'system-images;android-22;default;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M
+  - $ANDROID_HOME/tools/bin/avdmanager create avd --force --name test --package 'system-images;android-22;google_apis;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M
+  #- $ANDROID_HOME/tools/bin/avdmanager create avd --force --name test --package 'system-images;android-22;default;armeabi-v7a' --abi armeabi-v7a --device 'Nexus 4' --sdcard 128M
   - $ANDROID_HOME/emulator/emulator -avd test -skin 768x1280 -no-audio -no-window -verbose &
   - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
   - source ~/.nvm/nvm.sh
