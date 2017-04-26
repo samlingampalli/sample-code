@@ -33,7 +33,7 @@ test:
     - sleep 30
     - cd sample-code/examples/python 
     - ls
-    - cd sample-code/examples/python && python ios_simple.py
+    - export PYTHONPATH=$PYTHONPATH:/usr/local/bin:$PATH:/Users/distiller/Library/Python/2.7/bin:/Users/distiller/Library/Python/2.7/lib/python/site-packages/appium && cd sample-code/examples/python && python ios_simple.py
     - while [ "`adb shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do echo "Waiting for device" && sleep 1; done
     - adb shell input keyevent 82 &
     - adb devices
