@@ -25,7 +25,7 @@ dependencies:
        background: true
     - npm install -g appium@1.6.3 --no-shrinkwrap
   override:
-    - pip install --user -r requirements.txt
+    - pip install -v --user -r requirements.txt
 test:
   override:
     - appium &
